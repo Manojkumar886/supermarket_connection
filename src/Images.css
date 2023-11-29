@@ -1,0 +1,45 @@
+#center {
+    
+    background-image: linear-gradient(rgb(139, 230, 235),rgb(247, 247, 247),rgba(152, 123, 5, 0.979));
+   
+  }
+  #center1
+  {
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 67.9%;
+    height: 150px; 
+  }
+  #service
+  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 31.3%;
+    height: 390px; 
+  }
+  #center2
+  {
+    background-image: linear-gradient(rgb(48, 238, 14),rgb(208, 0, 0),rgba(6, 96, 114, 0.979));
+    -webkit-background-clip: text;
+   color: transparent;
+   text-decoration: underline rgb(37, 52, 4);
+  }
+#bc1
+{
+  background-color: orangered;
+}
+  #texting
+  {
+    color: rgb(239, 77, 23);
+    font-family: cursive;
+    font-style: italic;
+  }
+  #servicebg
+  {
+    background-image: linear-gradient(rgba(49, 5, 5, 0.97),rgb(241, 145, 71),rgba(242, 206, 63, 0.833));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
