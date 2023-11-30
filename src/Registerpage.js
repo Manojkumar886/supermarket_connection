@@ -49,13 +49,13 @@ export let Register=()=>
                                 <input type="number" 
                                 onChange={track}
                                 value={process.productCount}
-                                 name="procount"
+                                 name="productCount"
                                 className="form-control" />
                             </div>
                             <div className="col">
                                 <label className="form-label" >productCategory</label>
                                 <input type="text" 
-                                name="procat"
+                                name="productCategory"
                                 onChange={track}
                                 value={process.productCategory}
                                 className="form-control" />
@@ -65,7 +65,7 @@ export let Register=()=>
                     <div className="mt-3">
                                 <label className="form-label" >productBrand</label>
                                 <input type="text" 
-                                name="probrand"
+                                name="productBrand"
                                 onChange={track}
                                 value={process.productBrand}
                                 className="form-control" />
@@ -73,7 +73,7 @@ export let Register=()=>
                     <div className="mt-3">
                                 <label className="form-label" >ProductName</label>
                                 <input type="tel" 
-                                name="cproname"
+                                name="productName"
                                 onChange={track}
                                 value={process.productName}
                                 className="form-control" />
@@ -81,7 +81,7 @@ export let Register=()=>
                     <div className="mt-3">
                                 <label className="form-label" >productPrice</label>
                                 <input type="number" 
-                                name="proprice"
+                                name="productPrice"
                                 onChange={track}
                                 value={process.productPrice}
                                 className="form-control" />
@@ -89,7 +89,7 @@ export let Register=()=>
                     <div className="mt-3">
                                 <label className="form-label" >productOffer</label>
                                 <input type="number"
-                                name="prooffer"
+                                name="productOffer"
                                 onChange={track}
                                 value={process.productOffer}
                                  className="form-control" />
