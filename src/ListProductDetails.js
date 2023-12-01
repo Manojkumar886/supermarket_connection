@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
 import './Images.css'
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import { Displayallproductdetails } from './Connect';
 
 export const ListallproductDetails=()=>
 {
+    const {myid}=useParams();
     const navi=useNavigate();
     const[allvalues,setAllvalues]=useState([])
 
     const productvalue=async()=>
     {
+       const temp=await Displayallproductdetails();
+       setAllvalues(temp.data);
     }
 
     useEffect(()=>
@@ -38,18 +42,18 @@ export const ListallproductDetails=()=>
                                         </thead>
                                         <tbody >
                                         {
-                                                allvalues.map((data)=>(
+                                                allvalues.map((da)=>(
                                                     <tr>
                                                         <td>
-                                                            <a href=" " className="btn btn-outline-primary">{data.productCount}</a>
+                                                            <a href={`reading/${da.productCount}`}className="btn btn-outline-primary">{da.productCount}</a>
                                                         </td>
-                                                        <td>{data.productCategory}</td>
-                                                        <td>{data.productBrand}</td>
-                                                        <td>{data.productName}</td>
-                                                        <td>{data.productOffer}</td>
-                                                        <td>{data.productPrice}</td>
+                                                        <td>{da.productCategory}</td>
+                                                        <td>{da.productBrand}</td>
+                                                        <td>{da.productName}</td>
+                                                        <td>{da.productOffer}</td>
+                                                        <td>{da.productPrice}</td>
                                                         <td>
-                                                            <a className="btn btn-outline-secondary" href=''>UPDATE</a>
+                                                            <a className="btn btn-outline-secondary" href={`updating/${myid}`}>UPDATE</a>
                                                             <button className="btn btn-outline-danger">
                                                                 Delete
                                                             </button>
