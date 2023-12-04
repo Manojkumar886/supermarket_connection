@@ -3,11 +3,11 @@ import './Images.css'
 import { useNavigate, useParams } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { Displayallproductdetails } from './Connect';
+import { Deleteproduct, Displayallproductdetails } from './Connect';
 
 export const ListallproductDetails=()=>
 {
-    const {myid}=useParams();
+    const {count}=useParams();
     const navi=useNavigate();
     const[allvalues,setAllvalues]=useState([])
 
@@ -45,7 +45,7 @@ export const ListallproductDetails=()=>
                                                 allvalues.map((da)=>(
                                                     <tr>
                                                         <td>
-                                                            <a href={`reading/${da.productCount}`}className="btn btn-outline-primary">{da.productCount}</a>
+                                                            <a href={`reading/${da.productCount}`} className="btn btn-outline-primary">{da.productCount}</a>
                                                         </td>
                                                         <td>{da.productCategory}</td>
                                                         <td>{da.productBrand}</td>
@@ -53,8 +53,15 @@ export const ListallproductDetails=()=>
                                                         <td>{da.productOffer}</td>
                                                         <td>{da.productPrice}</td>
                                                         <td>
-                                                            <a className="btn btn-outline-secondary" href={`updating/${myid}`}>UPDATE</a>
-                                                            <button className="btn btn-outline-danger">
+                                                            <a className="btn btn-outline-secondary" href={`updating/${da.productCount}`}>UPDATE</a>
+                                                            <button className="btn btn-outline-danger"
+                                                            onClick={
+                                                                async()=>{
+                                                                    const t=await Deleteproduct(da.productCount);
+                                                                    alert(t.data+" has been deleted successfully");
+                                                                    navi("/ListallproductDetails")
+                                                            }
+                                                            }>
                                                                 Delete
                                                             </button>
                                                          </td>

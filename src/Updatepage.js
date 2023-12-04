@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router';
 import { Readoneproduct, Updateproduct } from './Connect';
 export let Updating=()=>
 {
-    const {myid}=useParams();
+    const {count}=useParams();
     const navi=useNavigate();
     const[process,setProcess]=useState({});
     useEffect(()=>
@@ -16,7 +16,7 @@ export let Updating=()=>
 
     const callreadingvalues=async()=>
     {
-        const t=await Readoneproduct(myid);
+        const t=await Readoneproduct(count);
         setProcess(t.data);
     }
     const track=(agi)=>
@@ -52,20 +52,21 @@ export let Updating=()=>
                     <div className="row justify-content-center " >
                         <div className="row">
                             <div className="col">
-                                <label className="form-label" >productcount</label>
+                                <label className="form-label" >productCount</label>
                                 <input type="number" 
-                                onChange={track}
-                                value={process.productCount}
-                                 name="productCount"
-                                className="form-control" />
+                                    onChange={track}
+                                    value={process.productCount}
+                                    name="productCount"             
+                                    className="form-control" 
+                                />
                             </div>
                             <div className="col">
                                 <label className="form-label" >productCategory</label>
                                 <input type="text" 
-                                name="productcategory"
-                                onChange={track}
-                                value={process.productCategory}
-                                className="form-control" />
+                                    name="productCategory"
+                                    onChange={track}
+                                    value={process.productCategory}
+                                    className="form-control" />
                             </div>
                         </div>
                     </div>  
@@ -102,7 +103,7 @@ export let Updating=()=>
                                  className="form-control" />
                     </div>
                     <div className="row justify-content-around mt-4">
-                        <button className="btn btn-outline-success col-3 ms-3" onClick={replace}  >Update</button>
+                        <button className="btn btn-outline-success col-3 ms-3" onClick={replace}  >UPDATE</button>
                         <button className="btn btn-outline-danger col-3 me-3" onClick={reset} type="reset" value="Reset" >CANCEL</button>
                     </div>
                 </div>

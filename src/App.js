@@ -18,7 +18,7 @@ function App() {
           <Route path="createproduct" exact element={<Register/>}/>
           <Route path="listallproductdetails" exact element={<ListallproductDetails/>}/>
           <Route path="reading/:myid" exact element={<Reading/>} />
-          <Route path="updating/:myid" exact element={<Updating/>} />
+          <Route path="updating/:count" exact element={<Updating/>} />
           </Routes>
           </BrowserRouter>
         </>

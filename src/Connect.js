@@ -53,3 +53,10 @@ export const Updateproduct=async(object)=>
     alert(JSON.stringify(t.data)+" has been updated in database")
     return t;
 }
+
+
+export const Deleteproduct=async(id)=>
+{
+    const t=await axios.delete(`${url}/deleteone/${id}`);
+    return t;
+}
