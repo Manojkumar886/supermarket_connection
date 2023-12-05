@@ -8,20 +8,28 @@ export let Updating=()=>
 {
     const {count}=useParams();
     const navi=useNavigate();
-    const[process,setProcess]=useState({});
+    const[process,setProcess]=useState({
+        "productCount":0,
+        "productCategory":"",
+        "productBrand":"",
+        "productName":"",
+        "productPrice":0,
+        "productOffer":0
+    });
+
     useEffect(()=>
     {
         callreadingvalues();
-    })
+    },[])
 
     const callreadingvalues=async()=>
     {
         const t=await Readoneproduct(count);
         setProcess(t.data);
     }
-    const track=(agi)=>
+    const track=(data)=>
     {
-        const{name,value}=agi.target
+        const{name,value}=data.target
         setProcess(
             (old)=>
             {
@@ -31,13 +39,15 @@ export let Updating=()=>
                 }
             }
         )
-    }
+    }   
     const reset=()=>
     {
         alert('Rejected successfully...!')
+        alert(JSON.stringify(process));
     }
     const replace=async()=>
     {
+        alert(JSON.stringify(process));
         const t=await Updateproduct(process);
         alert(t.data+" has updated in your database");
         navi("/ListallproductDetails");
@@ -52,21 +62,20 @@ export let Updating=()=>
                     <div className="row justify-content-center " >
                         <div className="row">
                             <div className="col">
-                                <label className="form-label" >productCount</label>
+                                <label className="form-label" >productcount</label>
                                 <input type="number" 
-                                    onChange={track}
-                                    value={process.productCount}
-                                    name="productCount"             
-                                    className="form-control" 
-                                />
+                                 name="productCount"
+                                 onChange={track}
+                                 value={process.productCount}
+                                 className="form-control" />
                             </div>
                             <div className="col">
                                 <label className="form-label" >productCategory</label>
                                 <input type="text" 
-                                    name="productCategory"
-                                    onChange={track}
-                                    value={process.productCategory}
-                                    className="form-control" />
+                                name="productCategory"
+                                onChange={track}
+                                value={process.productCategory}
+                                className="form-control" />
                             </div>
                         </div>
                     </div>  
@@ -100,7 +109,7 @@ export let Updating=()=>
                                 name="productOffer"
                                 onChange={track}
                                 value={process.productOffer}
-                                 className="form-control" />
+                                className="form-control" />
                     </div>
                     <div className="row justify-content-around mt-4">
                         <button className="btn btn-outline-success col-3 ms-3" onClick={replace}  >UPDATE</button>

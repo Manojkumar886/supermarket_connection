@@ -25,56 +25,52 @@ export const ListallproductDetails=()=>
   
     return(
                 <>
-                <div className="container mt-5 bg-primary " >
-                    <div className="row justify-content-center">
-                                <div className="table-responsive-lg">
-                                    <table className="col-lg-8 col-md-10 col-sm-12 table table-striped ">
-                                        <thead id="texting">
+                    <div className="row justify-content-center mt-5 bg-warning">
+                        <div className="table-responsive">
+                            <table className="col-lg-8 col-md-10 col-sm-12 table table-striped table-warning ">
+                                <thead id="texting">
+                                    <tr id='head'>
+                                        <th>productCount</th>
+                                        <th>productCategory</th>
+                                        <th>productBrand</th>
+                                        <th>ProductName</th>
+                                        <th>productOffer</th>
+                                        <th>productPrice</th>  
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    {
+                                        allvalues.map((da)=>(
                                             <tr>
-                                                <th>productCount</th>
-                                                <th>productCategory</th>
-                                                <th>productBrand</th>
-                                                <th>ProductName</th>
-                                                <th>productOffer</th>
-                                                <th>productPrice</th>  
-                                                <th>Actions</th>
+                                                <td>
+                                                    <a href={`reading/${da.productCount}`} className="btn btn-outline-dark">{da.productCount}</a>
+                                                </td>
+                                                <td>{da.productCategory}</td>
+                                                <td>{da.productBrand}</td>
+                                                <td>{da.productName}</td>
+                                                <td>{da.productOffer}</td>
+                                                <td>{da.productPrice}</td>
+                                                <td>
+                                                    <a className="btn btn-dark" href={`updating/${da.productCount}`}>UPDATE</a>
+                                                    <button className="btn btn-light text-dark"
+                                                    onClick={
+                                                        async()=>
+                                                        {
+                                                            const t=await Deleteproduct(da.productCount);
+                                                            alert(t.data+" has been deleted successfully");
+                                                            navi("/ListallproductDetails")
+                                                        }
+                                                    }>REMOVE
+                                                    </button>            
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody >
-                                        {
-                                                allvalues.map((da)=>(
-                                                    <tr>
-                                                        <td>
-                                                            <a href={`reading/${da.productCount}`} className="btn btn-outline-primary">{da.productCount}</a>
-                                                        </td>
-                                                        <td>{da.productCategory}</td>
-                                                        <td>{da.productBrand}</td>
-                                                        <td>{da.productName}</td>
-                                                        <td>{da.productOffer}</td>
-                                                        <td>{da.productPrice}</td>
-                                                        <td>
-                                                            <a className="btn btn-outline-secondary" href={`updating/${da.productCount}`}>UPDATE</a>
-                                                            <button className="btn btn-outline-danger"
-                                                            onClick={
-                                                                async()=>{
-                                                                    const t=await Deleteproduct(da.productCount);
-                                                                    alert(t.data+" has been deleted successfully");
-                                                                    navi("/ListallproductDetails")
-                                                            }
-                                                            }>
-                                                                Delete
-                                                            </button>
-                                                         </td>
-                                                    </tr>
-
-                                                ))
-                                            }
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                </div>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </>
             );
 }

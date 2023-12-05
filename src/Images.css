@@ -43,3 +43,8 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+
+  #head
+  {
+    text-transform: uppercase;
+  }

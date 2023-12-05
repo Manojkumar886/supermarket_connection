@@ -49,7 +49,7 @@ export const Readoneproduct=async(id)=>
 
 export const Updateproduct=async(object)=>
 {
-    const t=await axios.put(`${url}/update`,object);
+    const t=await axios.put(`${url}/updateone`,object);
     alert(JSON.stringify(t.data)+" has been updated in database")
     return t;
 }
